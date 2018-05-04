@@ -1,0 +1,76 @@
+<div class="card">
+    <div class="card-body">
+        <form>
+            <div class="row">
+                <div class="col">
+                    <input class="form-control" type="text" placeholder="Enter profile username" [(ngModel)]="username" name="username" (keyup)="searchUser()">
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+<div *ngIf="userData">
+
+    <div class="card">
+        <div class="card-header text-center h2">
+            {{userData.name}}
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{userData.avatar_url}}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">{{userData.bio}}</p>
+
+                            <a href="{{userData.html_url}}" target="_blank" class="btn btn-primary" style="margin-top: 10px;">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="states">
+                        <span class="badge badge-secondary">{{userData.public_repos}} Public Repo</span>
+                        <span class="badge badge-success">{{userData.public_gists}} Public Gist</span>
+                        <span class="badge badge-warning">{{userData.followers}} Followers</span>
+                        <span class="badge badge-dark">{{userData.following}} Following</span>
+                    </div>
+                    <br>
+                    <div>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Username: </strong> {{userData.login}}</li>
+                            <li class="list-group-item"><strong>Blog: </strong> {{userData.blog}}</li>
+                            <li class="list-group-item"><strong>Location: </strong> {{userData.location}}</li>
+                            <li class="list-group-item"><strong>Email: </strong> {{userData.email}}</li>
+                            <li class="list-group-item"><strong>Member Since: </strong> {{userData.created_at}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header text-center h3">
+                Users Public Repos
+            </div>
+            <div class="card-body">
+                <div *ngFor="let repo of repos">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <a href="{{repo.html_url}}"><h4>{{repo.name}}</h4></a>
+                            <p>{{repo.description}}</p>
+                        </div>
+                        <div class="col-md-3">
+                            <span class="badge badge-info">{{repo.watchers}} Watchers</span>
+                            <span class="badge badge-light">{{repo.forks}} Forks</span>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+
+        </div>
+    </div>
+
+</div>

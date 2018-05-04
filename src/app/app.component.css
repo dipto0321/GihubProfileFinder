@@ -1,0 +1,18 @@
+nav{
+    background-color: #2980b9;
+}
+.navbar-brand{
+    font-family: 'Dosis', sans-serif;
+    font-size: 2em;
+}
+.btn-outline-success{
+    color: #2980b9;
+    border-color: #2980b9;
+}
+.btn-outline-success:hover{
+    color: #ffffff;
+    background-color: #2980b9;
+}
+.card{
+    margin-top: 10px;
+}
